@@ -24,4 +24,4 @@ from joblib import dump, load
 dump(model, 'mymodel.joblib') #save  
 model2 = load('mymodel.joblib')  #load
 
-model.predict(np.array([b0.x,b0.y]).reshape(1,-1))
+[0,1,0,0,0,0,0,0,0,0,0,5]
