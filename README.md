@@ -5,7 +5,7 @@ The objective of this project was to find the predicted delay time a person can 
 
 ## Selection of Data
 
-The data used can be found [here](https://www.kaggle.com/pranavbadami/nj-transit-amtrak-nec-performance)
+We chose this particular dataset from Kaggle because it contained a lot of data points and had features we believed would give us a good prediction of delay times. [Link](https://www.kaggle.com/pranavbadami/nj-transit-amtrak-nec-performance)
 
 ### Data Preview
 
