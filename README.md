@@ -10,7 +10,7 @@ We chose this particular dataset from Kaggle because it contained a lot of data 
 ### Data Preview
 
 ![](./assets/datapreview.png)
-There are a total of 13 columns consisting of date, train_id, stop_sequence, from, from_id, to to_id, scheduled_time, actual_time, delay_minutes, status, line, and type. Of these columns we found that only 3 of these columns were necessary to predict delays, stop_sequence, line, and delay_minutes. The dataset also has data for Amtrak but we dropped it due to it not having delay information. The entire dataset that we trained on has around 7,000,000 entries.
+There are a total of 13 columns consisting of date, train_id, stop_sequence, from, from_id, to to_id, scheduled_time, actual_time, delay_minutes, status, line, and type. Of these columns we found that only 3 of these columns were necessary to predict delays, stop_sequence, line, and delay_minutes. The dataset also has data for Amtrak but we dropped it due to it not having delay information. The entire dataset that we trained on has around 6,300,000 entries.
 
 ### Data Wrangling
 
