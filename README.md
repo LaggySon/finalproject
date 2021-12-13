@@ -1,4 +1,4 @@
-To run our application, please run `pip install -r requirements.txt`
+To run our application, you'll need to install our dependencies first. `pip install -r requirements.txt`
 ## Introduction
 
 Our Group undertook this project to see if machine learning could be used for an application to predict an expected time delay.
