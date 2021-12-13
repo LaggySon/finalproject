@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import os
 import glob
-files = os.path.join('./data/', '2018*.csv')
+files = os.path.join('./data/', '20*.csv')
 files = glob.glob(files)
 df = pd.concat(map(pd.read_csv, files), ignore_index=True)
 data = df[['line','stop_sequence','delay_minutes']]
