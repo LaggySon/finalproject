@@ -30,7 +30,7 @@ Next we vectorized the dictionary that we created in the previous step so that w
 
 ## Methods
 
-### Tools:
+### Tools
 
 - Numpy
 - Pandas
