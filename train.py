@@ -1,27 +1,31 @@
 import pandas as pd
 import numpy as np
-df = pd.read_csv('./data/2018_03.csv')
-df = df.loc[df['type'] == 'NJ Transit']
-newdata = df.dropna()
-X = newdata[['from_id', 'to_id']]
-y = newdata['delay_minutes']
+import os
+import glob
+files = os.path.join('./data/', '2018*.csv')
+files = glob.glob(files)
+df = pd.concat(map(pd.read_csv, files), ignore_index=True)
+data = df[['line','stop_sequence','delay_minutes']]
+newdata = data.dropna()
 
-# from sklearn.feature_extraction import DictVectorizer
-# vec = DictVectorizer(sparse=False, dtype=int)
-# print(vec.fit_transform(df))
+newdata_dict = newdata.to_dict(orient='records') # turn each row as key-value pairs
 
+from sklearn.feature_extraction import DictVectorizer
+# instantiate a Dictvectorizer object for X
+dv_newdata = DictVectorizer(sparse=False) 
+# sparse = False makes the output is not a sparse matrix
+# apply dv_X on X_dict
+newdata_encoded = dv_newdata.fit_transform(newdata_dict)
 
+X = newdata_encoded[:,1:]
+y = newdata_encoded[:,0]
 
 from sklearn.model_selection import train_test_split
-Xtrain, Xtest, ytrain, ytest = train_test_split(X, y, test_size=0.2, random_state=0)
+Xtrain, Xtest, ytrain, ytest = train_test_split(X, y, test_size=0.20, random_state=1)
 
 from sklearn.linear_model import SGDRegressor
-model = SGDRegressor()
+model = SGDRegressor(loss='huber')
 model.fit(Xtrain,ytrain)
-y_model = model.predict(Xtest)
 
-from joblib import dump, load 
-dump(model, 'mymodel.joblib') #save  
-model2 = load('mymodel.joblib')  #load
-
-[0,1,0,0,0,0,0,0,0,0,0,5]
+from joblib import dump, load
+dump(model, 'mymodel.joblib') #save
